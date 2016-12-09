@@ -1,146 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-<link media='screen' type='text/css' rel='stylesheet' href='auxiliary/style2.css'/>
-<script type='text/javascript.js' src='auxiliary/style22.js'></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery可拖拽旋转的3D图片墙DEMO</title>
 
-<meta name="themename" content="39001"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>bang</title>
-<meta name="Keywords" content="bang - 随笔"/>
-<meta name="Description" content="bang - "/>
-
-<meta name="color:背景" content="#f8f8f8"/>
-<meta name="color:线条" content="#aaa"/>
-<meta name="color:博客标题" content="#333"/>
-<meta name="color:描述" content="#aaa"/>
-<meta name="color:导航" content="#aaa"/>
-<meta name="color:导航状态״̬" content="#333"/>
-<meta name="color:链接" content="#c6c0a6"/>
-<meta name="color:链接状态״̬" content="#333"/>
-<meta name="color:文字" content="#aaa"/>
-<meta name="if:文章显示摘要" content="1"/>
-
-<link href="auxiliary/style3.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-body{background-color:#f8f8f8;}
-.m-rightbd,
-.m-nav,
-.m-post,
-.m-post .otherinfo .infowrap,
-.m-post .otherinfo2 .infowrap2{border-color:#aaa;}
-.m-userinfo .nick{color:#333;}
-.m-userinfo .desc{color:#2c2c2c;}
-.m-nav a{color:#242424;}
-.m-nav a:hover{color:#333;}
-.c1,a.c1,a{color:#353222;}
-.c1:hover,a.c1:hover,a:hover{color:#333;}
-.m-post,
-.m-post .text,
-blockquote,
-.m-copyr,
-.notes, .notes a, .notes a:hover{color:#333333;}
-.notes .note{border-bottom-color:#dedede;}
-</style>
-</head>
+	*{margin:0;padding: 0;}
+	.pic{
+		width: 120px;
+		height: 180px;
+		margin: 150px auto 0;
+		position: relative;
+		/*transform 旋转元素*/
+		transform-style:preserve-3d;
+		transform:perspective(800px) rotateX(-10deg) rotateY(0deg);
+	}
+	body{background-color: #66677c;}
 
+	.pic img{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		box-shadow: 0px 0px 10px #fff;
+		/*倒影的设置*/
+		-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+	}
+	.pic p{
+		width: 1200px;
+		height: 1200px;
+		background: -webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+		position: absolute;
+		top:100%;left:50%;
+		margin-top: -600px;
+		margin-left: -600px;
+		border-radius:600px;
+		transform:rotateX(90deg);
+	}
+</style>
+
+</head>
 <body>
 
-
-<div class="g-doc">
-    <div class="g-head">
-        <a class="m-face" href="ohoh/ohoh.html" >
-            <img src="face.jpg">
-            <span class="cover">&nbsp;</span>
-        </a>
-        <div class="m-userinfo">
-            <a hidefocus="true" href="ohoh/ohoh.html" class="nick">bang</a>
-            <div class="desc"></div>
-        </div>
-        <div class="m-nav">
-            
-            <a href="ohoh/ohoh.html" rel="nofollow" >摄影</a>
-            <a href="ohoh/ohoh.html">日志</a>
-            <a href="ohoh/ohoh.html">链接</a>
-        </div>
-        <div class="m-rightbd">&nbsp;</div>
-    </div>
-
-	<div class="g-body">
-        <div class="g-postlist">
-            
-                    <div class="m-post m-post-article">
-                        <div class="otherinfo">
-                            
-                            <div class="infowrap">
-                                
-                                
-                            </div>
-                            
-                        </div>
-                        <div class="time"><a href="ohoh/ohoh.html">2016-12-09</a></div>
-                
-                        <div class="content">
-                            <h2 class="title c4"><a href="ohoh/ohoh.html">简述</a></h2>
-                            <div class="text c5">
-                                
-                                    <p>我在学习如何搭建个人主页，这是我的初步尝试，搭建网页的技术并不复杂，但却繁琐，随着网页功能要求的增加，连锁性的学习在所难免，除开html，还必须学习javescript，php，css等等，对于像我一样的非专业人员，注定是个漫长的过程，但是这个过程似乎是一个极佳的消遣方式，我会逐步完善这个网站。<br /></p>
-									<p>感谢<a href="https://github.com/" target="_blank" class="abc">Github</a>以及<a href="http://www.w3school.com.cn/html/" target="_blank" class="abc">W3School</a>。</p>
-									<p>这个网站的初衷是为了我的涂涂，涂涂希望你能看见这个网站，你的摄影作品，旅途日志，生活推介等等都可以放到这个网页上，你有什么好的idea也及时给我说，我会增添上去。该网页会逐步丰富评论功能等，界面也将更加美观。期待！加油哦
-
-，涂涂^_^</p>									
-									
-                                
-                                
-                            </div>
-                        </div>
-						    
-                    </div>
-					
-					<div class="m-post m-post-article">
-                        <div class="otherinfo">
-                            
-                            <div class="infowrap">
-                                
-                                
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="content">
-                            <h2 class="title c4"><a href="ohoh/ohoh.html">联系我</a></h2>
-                            <div class="text c5">
-                                
-                                    <p>希望能和大家在多多交流，目前留言区功能还未能完善。<br />我的邮箱是：zebangmail@qq.com<br /></p> 
-									
-                                
-                                
-                            </div>
-                        </div>
-						    
-                    </div>
-					    
-        </div>
-	</div>
-	
-	
-	
-	<div class="g-bottom">
-            
-            <div id="loadmore" class="m-loadm" style="display:none;">
-                <span class="loadm">载入中...</span>
-            </div>
-
-            <div class="m-copyr">&copy; <a href="http://lizebang.lofter.com/">bang</a><span class="sep">/</span>Powered by <a class="c1" href="https://github.com/">GitHub</a></div>
-    </div>
-	
+<div class="pic">
+	<img src="img/1.jpg"/>
+	<img src="img/2.jpg" />
+	<img src="img/3.jpg"/>
+	<img src="img/4.jpg"/>
+	<img src="img/5.jpg"/>
+	<img src="img/6.jpg"/>
+	<img src="img/7.jpg"/>
+	<img src="img/8.jpg"/>
+	<img src="img/9.jpg"/>
+	<img src="img/10.jpg"/>
+	<p></p>
 </div>
 
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
 
+var imgL=$(".pic img").size();
+var deg=360/imgL;
+var roY=0,roX=-10;
+ var xN=0,yN=0;
+ var play=null;
 
+$(".pic img").each(function(i){
+	$(this).css({
+		<!--translateZ 定义2d旋转沿着z轴-->
+		"transform":"rotateY("+i*deg+"deg) translateZ(300px)"	});
+		<!--防止图片被拖拽-->
+		$(this).attr('ondragstart','return false');
+	});
 
+	$(document).mousedown(function(ev){
+	var x_=ev.clientX;
+	var y_=ev.clientY;
+	clearInterval(play);
+		console.log('我按下了');
+		$(this).bind('mousemove',function(ev){
+			/*获取当前鼠标的坐标*/
+			var x=ev.clientX;
+			var y=ev.clientY;
+			/*两次坐标之间的距离*/
+			  xN=x-x_;
+			  yN=y-y_;
 
+			 roY+=xN*0.2;
+			roX-=yN*0.1;
+			console.log('移动');
+			//$('body').append('<div style="width:5px;height:5px;position:absolute;top:'+y+'px;left:'+x+'px;background-color:red"></div>');
 
+			$('.pic').css({
+				 transform:'perspective(800px) rotateX('+roX+'deg) rotateY('+roY+'deg)'
+			});
+			/*之前的鼠标坐标*/
+		 x_=ev.clientX;
+		 y_=ev.clientY;
+
+		});
+	}).mouseup(function(){
+		  $(this).unbind('mousemove');
+		  var play=setInterval(function(){
+		   
+		   xN*=0.95;
+		   yN*=0.95
+		   if(Math.abs(xN)<1 && Math.abs(yN)<1){
+			  clearInterval(play);
+		   }
+			roY+=xN*0.2;
+			roX-=yN*0.1;
+			$('.pic').css({
+				 transform:'perspective(800px) rotateX('+roX+'deg) rotateY('+roY+'deg)'
+			});
+
+		  },30);
+
+	});
+
+});
+</script>
 
 </body>
 </html>
